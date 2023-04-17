@@ -144,6 +144,18 @@ def mobile(request, data=None):
         mobiles = Product.objects.filter(category='M').filter(discounted_price__gt=10000)
     return render(request, 'app/mobile.html', {'mobiles':mobiles})
 
+# ===================================== mobile fucntion ========================================
+def laptop(request, data=None):
+    if data == None:
+        laptops = Product.objects.filter(category='L')
+    elif data == 'Dell' or data == 'Hp' or data == 'Apple':
+        laptops = Product.objects.filter(category='L').filter(brand=data)
+    elif data == 'below':
+        laptops = Product.objects.filter(category='L').filter(discounted_price__lt=40000)
+    elif data == 'above':
+        laptops = Product.objects.filter(category='L').filter(discounted_price__gt=50000)
+    return render(request, 'app/laptop.html', {'laptop':laptops})
+
 # ===================================== CustomerRegistrationView class ========================================
 class CustomerRegistrationView(View):
     def get(self, request):
