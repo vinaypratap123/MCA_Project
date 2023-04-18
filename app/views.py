@@ -144,7 +144,7 @@ def mobile(request, data=None):
         mobiles = Product.objects.filter(category='M').filter(discounted_price__gt=10000)
     return render(request, 'app/mobile.html', {'mobiles':mobiles})
 
-# ===================================== mobile fucntion ========================================
+# ===================================== laptop fucntion ========================================
 def laptop(request, data=None):
     if data == None:
         laptops = Product.objects.filter(category='L')
@@ -219,3 +219,27 @@ class ProfileView(View):
             reg.save()
             messages.success(request, 'Congratulations!! Profile Updated Successfully')
         return render(request, 'app/profile.html', {'form':form, 'active':'btn-primary'})
+
+# ===================================== topwear fucntion ========================================
+def topwears(request, data=None):
+    if data == None:
+        topwears = Product.objects.filter(category='TW')
+    elif data == 'shirt' or data == 't-shirt' or data == 'kurti':
+        topwears = Product.objects.filter(category='TW').filter(brand=data)
+    elif data == 'below':
+        topwears = Product.objects.filter(category='TW').filter(discounted_price__lt=500)
+    elif data == 'above':
+        topwears = Product.objects.filter(category='TW').filter(discounted_price__gt=500)
+    return render(request, 'app/TopWear.html', {'topwears':topwears})
+
+# ===================================== bottomwear fucntion ========================================
+def  bottomwears(request, data=None):
+    if data == None:
+        bottomwears = Product.objects.filter(category='BW')
+    elif data == 'jeans' or data == 'formalpants' or data == 'lower':
+        bottomwears = Product.objects.filter(category='BW').filter(brand=data)
+    elif data == 'below':
+        bottomwears = Product.objects.filter(category='BW').filter(discounted_price__lte=1000)
+    elif data == 'above':
+        bottomwears = Product.objects.filter(category='BW').filter(discounted_price__gt=1000)
+    return render(request, 'app/bottomwear.html', {'bottomwears':bottomwears})
