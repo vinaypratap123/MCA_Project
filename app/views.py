@@ -156,6 +156,13 @@ def laptop(request, data=None):
         laptops = Product.objects.filter(category='L').filter(discounted_price__gt=50000)
     return render(request, 'app/laptop.html', {'laptop':laptops})
 
+# ===================================== laptop fucntion ========================================
+def search(request):
+    if request.method =='POST':
+        content = request.POST['search']
+        
+    return render(request, 'app/search.html', {'search':content})
+
 # ===================================== CustomerRegistrationView class ========================================
 class CustomerRegistrationView(View):
     def get(self, request):

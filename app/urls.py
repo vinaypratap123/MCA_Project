@@ -29,6 +29,8 @@ urlpatterns = [
 
     path('orders/', views.orders, name='orders'),
 
+    path('search/', views.search, name='search'),
+
     path('mobile/', views.mobile, name='mobile'),
     
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),
