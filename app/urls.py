@@ -31,6 +31,8 @@ urlpatterns = [
 
     path('search/', views.search, name='search'),
 
+    path('search/<slug:data>', views.search, name='search'),
+
     path('mobile/', views.mobile, name='mobile'),
     
     path('mobile/<slug:data>', views.mobile, name='mobiledata'),

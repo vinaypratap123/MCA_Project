@@ -157,11 +157,34 @@ def laptop(request, data=None):
     return render(request, 'app/laptop.html', {'laptop':laptops})
 
 # ===================================== laptop fucntion ========================================
-def search(request):
+def search(request,content=None):
     if request.method =='POST':
         content = request.POST['search']
+        if (content == 'laptop'):
+            laptops = Product.objects.filter(category='L')
+            return render(request, 'app/laptop.html',{'laptop':laptops})
+        if (content == 'mobile'):
+            mobiles = Product.objects.filter(category='M')
+            return render(request, 'app/mobile.html',{'mobile':mobiles})
         
-    return render(request, 'app/search.html', {'search':content})
+        if (content == 'topwear'):
+            topwears = Product.objects.filter(category='TW')
+            if ( content == 'kurti'):
+                topwears = Product.objects.filter(category='TW').filter(brand=content)
+            elif ( content == 'shirt'):
+                topwears = Product.objects.filter(category='TW').filter(brand=content)
+            elif ( content == 't-shirt'):
+                topwears = Product.objects.filter(category='TW').filter(brand=content)
+
+            return render(request, 'app/TopWear.html',{'topwears':topwears})
+        
+
+
+
+        
+
+        
+        
 
 # ===================================== CustomerRegistrationView class ========================================
 class CustomerRegistrationView(View):
