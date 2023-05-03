@@ -69,6 +69,7 @@ urlpatterns = [
     
     path('paymentdone/', views.payment_done, name='payment_done'),
 
-    path('registration/', views.CustomerRegistrationView.as_view(), name="customerregistration")
+    path('registration/', views.CustomerRegistrationView.as_view(), name="customerregistration"),
 
+    path('feedback/', views.feedback, name='feedback'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

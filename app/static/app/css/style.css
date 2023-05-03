@@ -18,3 +18,26 @@
  font-size: 24px;
  font-weight: bold;
 }
+body{
+    background-color: rgb(85, 123, 134);
+    
+}
+.container{
+    background-color: rgb(10, 140, 145);
+    outline-color: rgb(4, 65, 70);
+}
+.nv{
+    border-radius: 50px;
+    padding: 20px;
+}
+footer{
+    
+
+    height: 120px;
+
+}
+.nav{
+    height: 60px;
+   
+}
+

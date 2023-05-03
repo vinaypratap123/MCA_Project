@@ -176,8 +176,7 @@ def search(request,content=None):
             elif ( content == 't-shirt'):
                 topwears = Product.objects.filter(category='TW').filter(brand=content)
 
-            return render(request, 'app/TopWear.html',{'topwears':topwears})
-        
+            return render(request, 'app/TopWear.html',{'topwears':topwears})  
 
 
 
@@ -273,3 +272,8 @@ def  bottomwears(request, data=None):
     elif data == 'above':
         bottomwears = Product.objects.filter(category='BW').filter(discounted_price__gt=1000)
     return render(request, 'app/bottomwear.html', {'bottomwears':bottomwears})
+# ===================================== bottomwear fucntion ========================================
+
+def  feedback(request):
+   
+    return render(request, 'app/feedback.html')

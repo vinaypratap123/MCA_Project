@@ -26,8 +26,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
+  <nav class="navbar py-lg-3 navbar-expand-lg navbar-dark ">
+    <div class="container nv">
       <a class="navbar-brand" href="/">E-Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,11 +58,14 @@
               <li><a class="dropdown-item" href="{% url 'bottomwears' %}">Bottom Wear</a></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">FeedBack</a>
+          </li>
         </ul>
         <form method="POST" action="{% url 'search' %}" class="d-flex">
           {% csrf_token %}
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-          <button class="btn btn-warning" type="submit">Search</button>
+          <button class="btn btn-outline-info" type="submit">Search</button>
         </form>
         <div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -101,8 +104,8 @@
   {% block main-content %} {% endblock main-content %}
 
   <!-- Start Footer -->
-  <footer class="container-fluid bg-dark text-center p-2 mt-5">
-    <small class="text-white">Copyright &copy; 2021 || Designed By GeekyShows || </small>
+  <footer class="container-fluid bg-primary text-center p-2 mt-5 ft">
+    <small class="text-white">Copyright &copy; 2023</small>
     <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
   </footer> <!-- End Footer -->
 
