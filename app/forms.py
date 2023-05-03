@@ -32,6 +32,12 @@ class LoginForm(AuthenticationForm):
     username = UsernameField(widget=forms.TextInput(attrs={'autofocus':True, 'class':'form-control'}))
     password = forms.CharField(label=_("Password"), strip=False, widget=forms.PasswordInput(attrs={'autocomplete':'current-password', 'class':'form-control'}))
 
+# ==================================== FeedbackForm ==========================================
+class FeedbackForm(UserCreationForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'autofocus':True, 'class':'form-control'}))
+    email = forms.EmailField(label=_("Email"), max_length=254, widget=forms.EmailInput(attrs={'autocomplete':'email','class':'form-control'}))
+    message = forms.CharField(strip=False, widget=forms.Textarea(attrs={'autocomplete':'current-password', 'class':'form-control'}))
+    
 # ==================================== MyPasswordChangeForm ==========================================
 class MyPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(label=("Old Password"), strip=False, widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'autofocus':True, 'class': 'form-control'}))

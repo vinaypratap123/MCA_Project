@@ -70,6 +70,11 @@ urlpatterns = [
     path('paymentdone/', views.payment_done, name='payment_done'),
 
     path('registration/', views.CustomerRegistrationView.as_view(), name="customerregistration"),
+<<<<<<< HEAD
+=======
+
+    path('feedback/' , views.feedback , name="feedback"),
+>>>>>>> c1675b3c83c5684ba8742332a16eb92cafaf1e28
 
     path('feedback/', views.feedback, name='feedback'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
