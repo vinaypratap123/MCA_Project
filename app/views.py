@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import View
 from .models import Customer, Product, Cart, OrderPlaced
-from .forms import CustomerRegistrationForm, CustomerProfileForm
+from .forms import CustomerRegistrationForm, CustomerProfileForm,FeedbackForm
 from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
@@ -273,3 +273,9 @@ def  bottomwears(request, data=None):
     elif data == 'above':
         bottomwears = Product.objects.filter(category='BW').filter(discounted_price__gt=1000)
     return render(request, 'app/bottomwear.html', {'bottomwears':bottomwears})
+
+# ===================================== feedback fucntion ========================================
+
+def feedback(request):
+    form = FeedbackForm()
+    return render(request,'app/feedback.html',{'form':form})
