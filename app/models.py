@@ -84,6 +84,15 @@ class Cart(models.Model):
     @property
     def total_cost(self):
         return self.quantity*self.product.discounted_price
+    
+# ========================feedback table==============================
+class Feedback(models.Model):
+    Name = models.CharField(max_length=70)
+    Email = models.EmailField(max_length=70)
+    Message = models.CharField(max_length=500)
+    
+    def __str__(self):
+        return self.Name
 
 
 
@@ -108,5 +117,8 @@ class OrderPlaced(models.Model):
     @property
     def total_cost(self):
         return self.quantity*self.product.discounted_price
+    
+
+
 
 

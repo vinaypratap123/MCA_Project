@@ -62,11 +62,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">FeedBack</a>
-          </li>
+      
         </ul>
-        <form method="POST" action="{% url 'search' %}" class="d-flex">
+        <form  method="POST" action="{% url 'search' %}" class="d-flex">
           {% csrf_token %}
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
           <button class="btn btn-outline-info" type="submit">Search</button>
@@ -108,7 +106,7 @@
   {% block main-content %} {% endblock main-content %}
 
   <!-- Start Footer -->
-  <footer class="container-fluid bg-primary text-center p-2 mt-5 ft">
+  <footer class="container-fluid bg-info text-center p-2 mt-5 ft">
     <small class="text-white">Copyright &copy; 2023</small>
     <img src="{% static 'app/images/payment.png' %}" alt="" srcset="" class="img-fluid" height="2px">
   </footer> <!-- End Footer -->

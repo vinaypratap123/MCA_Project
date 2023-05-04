@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container mb-5 text-light text-center">
+   <pre>
+    Suggestions:
+        Make sure that all words are spelled correctly.
+        Try different keywords.
+        Try more general keywords.
+    </pre>
+    <img class="dog" style="height: 300px;" src="{% static 'app/images/dog.jpg' %}" alt="" srcset="">
+</div>
+{% endblock main-content %}

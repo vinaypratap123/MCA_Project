@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import Customer, Product, Cart, OrderPlaced
+from .models import Customer, Product, Cart, OrderPlaced,Feedback
 from .forms import CustomerRegistrationForm, CustomerProfileForm,FeedbackForm
 from django.contrib import messages
 from django.db.models import Q
@@ -169,14 +169,10 @@ def search(request,content=None):
         
         if (content == 'topwear'):
             topwears = Product.objects.filter(category='TW')
-            if ( content == 'kurti'):
-                topwears = Product.objects.filter(category='TW').filter(brand=content)
-            elif ( content == 'shirt'):
-                topwears = Product.objects.filter(category='TW').filter(brand=content)
-            elif ( content == 't-shirt'):
-                topwears = Product.objects.filter(category='TW').filter(brand=content)
-
             return render(request, 'app/TopWear.html',{'topwears':topwears})  
+        else:
+            return render(request,'app/error.html')
+    
 
 
 
@@ -272,14 +268,19 @@ def  bottomwears(request, data=None):
     elif data == 'above':
         bottomwears = Product.objects.filter(category='BW').filter(discounted_price__gt=1000)
     return render(request, 'app/bottomwear.html', {'bottomwears':bottomwears})
-# ===================================== bottomwear fucntion ========================================
 
-def  feedback(request):
-   
-    return render(request, 'app/feedback.html')
 
 # ===================================== feedback fucntion ========================================
-
 def feedback(request):
-    form = FeedbackForm()
-    return render(request,'app/feedback.html',{'form':form})
+    if request.method =='POST':
+        Name = request.POST['name']
+        Email = request.POST['email']
+        Message = request.POST['message']
+        feedback = Feedback(Name=Name, Email=Email, Message=Message)
+        feedback.save()
+    # act = {'feedback':'active'}
+    return render(request,'app/feedback.html')
+
+# def feedback(request):
+    # form = FeedbackForm()
+    # return render(request,'app/feedback.html',{'form':form})

@@ -2,8 +2,13 @@ from django.contrib import admin
 from . models import(
     Customer,
     Product,
-    Cart,OrderPlaced
+    Cart,
+    OrderPlaced,
+    Feedback
+
 )
+
+admin.site.register(Feedback)
 
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):
