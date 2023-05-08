@@ -23,24 +23,24 @@ body{
     
 }
 .container{
-    background-color: rgb(10, 140, 145);
+    background-color: rgb(72, 126, 114);
     outline-color: rgb(4, 65, 70);
 }
 .nv{
     border-radius: 50px;
-    padding: 20px;
+    padding: 10px;
 }
 footer{
-    
-
+    background-color: rgb(85, 123, 134);
     height: 120px;
 
 }
 .nav{
-    height: 60px;
+    height: 10px;
    
 }
 
 .dog{
     height:60px;
 }
+

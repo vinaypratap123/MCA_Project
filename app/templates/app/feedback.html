@@ -3,27 +3,27 @@
 {% block title %}Customer Registration{% endblock title %}
 {% block main-content %}
 
-<div class="container mt-5">
-    <h1 class=" mb-5 border-bottom">CONTACT US</h1>
-    <div class="row  mb-5">
+<div class="container mt-2">
+    <h1 class=" mb-5  text-center">CONTACT US</h1>
+    <div style="justify-content: center;" class="row  mb-5 feed">
 
         <div class="col-sm-9 mb-5">
             <form action="/feedback/" method="post">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputname">Your Name</label>
+                        <label for="inputname">Your Name<span text-warning>*</span></label>
                         <input type="text" class="form-control" id="inputname" name="name"/>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputemail">Your Email</label>
+                        <label for="inputemail">Your Email<span text-warning>*</span></label>
                         <input type="text" class="form-control" id="inputemail" name="email" required/>
                     </div>
                 </div>
                     
-                    <div class="form-group ">
-                        <label for="inputTextarea">Your Message* </label>
-                        <textarea class="form-control" id="inputTextarea" name="message" required></textarea>
+                    <div class="form-group col-md-6">
+                        <label for="inputTextarea">Your Message<span text-warning>*</span> </label>
+                        <textarea class="form-control" id="inputTextarea" name="message" rows="6" required></textarea>
                     </div>
                     <button class="btn btn-primary my-3" type="submit">Send
                     </button>

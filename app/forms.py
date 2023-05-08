@@ -16,16 +16,6 @@ class CustomerRegistrationForm(UserCreationForm):
         labels = {'email': 'Email'}
         widgets = {'username': forms.TextInput(attrs={'class': 'form-control'})}
 
-# # ==================================== CustomerRegistrationForm ==========================================
-# class feedback(UserCreationForm):
-#     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'form-control'}))
-#     password2 = forms.CharField(label='Confirm Password (again)', widget=forms.PasswordInput(attrs={'class':'form-control'}))
-#     email = forms.CharField(required=True, widget=forms.EmailInput(attrs={'class':'form-control'}))
-#     class Meta:
-#         model = User
-#         fields = ['username', 'email', 'password1', 'password2']
-#         labels = {'email': 'Email'}
-#         widgets = {'username': forms.TextInput(attrs={'class': 'form-control'})}
 
 # ==================================== LoginForm ==========================================
 class LoginForm(AuthenticationForm):
@@ -62,7 +52,7 @@ class CustomerProfileForm(forms.ModelForm):
         widgets = {'name':forms.TextInput(attrs={'class':'form-control'}),'locality':forms.TextInput(attrs={'class':'form-control'}), 'city':forms.TextInput(attrs={'class': 'form-control'}),
         'state': forms.Select(attrs={'class': 'form-control'}),
         'zipcode':forms.NumberInput(attrs={'class':'form-control'})}
-# ==================================== CustomerProfileForm ==========================================
+# ==================================== Feedback Form ==========================================
 class feedback(forms.ModelForm):
     class Meta:
         model = Customer
